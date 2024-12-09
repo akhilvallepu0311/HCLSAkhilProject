@@ -1,3 +1,5 @@
+using HCLSProject.DataAccess.IRepositories;
+using HCLSProject.DataAccess.Repositories;
 using HCLSProject.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -11,7 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //builder.Services.AddDbContext<HCLSDBContext>(Options =>Options.UseSqlServer("Server=AKHIL\SQLEXPRESS;Uid=sa;password=123;database=HCLSDB;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true"))
-builder.Services.AddDbContext<HCLSDBContext>(Options=>Options.UseSqlServer(builder.Configuration.GetConnectionString("ConStrLocal"))); 
+builder.Services.AddDbContext<HCLSDBContext>(Options=>Options.UseSqlServer(builder.Configuration.GetConnectionString("ConStrLocal")));
+//builder.Services.AddTransient<IAdminTypesRepository,AdminTypesRepository>();
+//builder.Services.AddScoped<IAdminTypesRepository, AdminTypesRepository>();
+builder.Services.AddSingleton<IAdminTypesRepository,AdminTypesRepository>();
+builder.Services.AddSingleton<IAdminRepository, AdminRepository>(); 
 
 var app = builder.Build();
 // Add services to the container.
