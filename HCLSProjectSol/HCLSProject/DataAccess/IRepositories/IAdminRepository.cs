@@ -5,12 +5,12 @@ namespace HCLSProject.DataAccess.IRepositories
     public interface IAdminRepository
     {
         //Declare Methods :
-        Task <int >insertAdmin(Admin admin);
-        Task <int >updateAdmin(Admin admin);
-        Task <int >deleteAdmin(int  adminId);        
+        Task <int >InsertAdmin(Admin admin);
+        Task <int >UpdateAdmin(Admin admin);
+        Task <int >DeleteAdmin(int  adminId);        
         
-        Task<List <Admin>> getAllAdmins();
-        Task<Admin>getAdminById(int adminId);
+        Task<List <Admin>> GetAllAdmins();
+        Task<Admin>GetAdminById(int adminId);
 
     }
 }

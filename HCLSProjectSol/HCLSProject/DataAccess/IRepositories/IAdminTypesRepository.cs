@@ -11,7 +11,7 @@ namespace HCLSProject.DataAccess.IRepositories
         Task <List<AdminTypes>>GetAllAdminTypes();
         Task<int> UpdateAdminTypes(AdminTypes admin);
         Task<int> DeleteAdminTypes(int adminTypeId);
-        Task<AdminTypes>getAdminTypebyId(int adminTypeId);
+        Task<AdminTypes>GetAdminTypebyId(int adminTypeId);
        
     }
 }

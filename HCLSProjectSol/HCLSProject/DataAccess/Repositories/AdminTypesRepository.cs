@@ -23,7 +23,7 @@ namespace HCLSProject.DataAccess.Repositories
             return await  dbContext.SaveChangesAsync();  
         }
 
-        public async Task<AdminTypes> getAdminTypebyId(int adminTypeId)
+        public async Task<AdminTypes> GetAdminTypebyId(int adminTypeId)
         {
           return await  dbContext.AdminTypes.FindAsync(adminTypeId);
         }
