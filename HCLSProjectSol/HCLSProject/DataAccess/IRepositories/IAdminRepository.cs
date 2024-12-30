@@ -11,6 +11,7 @@ namespace HCLSProject.DataAccess.IRepositories
         
         Task<List <Admin>> GetAllAdmins();
         Task<Admin>GetAdminById(int adminId);
+        Task<Admin>CheckAdminLogin(string Email, string Password);
 
     }
 }

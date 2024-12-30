@@ -140,5 +140,30 @@ namespace HCLSProject.Controllers
                 return BadRequest("sorry for inconvinces...!\n We will solve this issue soon...!\n" + ex.Message);
             }
         }
+
+
+        [HttpGet]
+        [Route("CheckAdminLogin")]
+        public async Task<IActionResult>CheckAdminLogin(string Email, string Password)
+        {
+            try
+            {
+                var admin= await AdminRef.CheckAdminLogin(Email,Password);
+                if (admin != null)
+                {
+                    return Ok(admin);
+                }
+                else
+                {
+                    return BadRequest(" Data not found...!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("sorry for inconvinces...!\n We will solve this issue soon...!\n" + ex.Message);
+            }
+        }
+
     }
 }

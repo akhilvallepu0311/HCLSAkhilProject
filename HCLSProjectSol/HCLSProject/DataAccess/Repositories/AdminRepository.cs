@@ -11,6 +11,11 @@ namespace HCLSProject.DataAccess.Repositories
 
         public AdminRepository(HCLSDBContext _dbContext){ this.dbContext = _dbContext; }
 
+        public async Task<Admin> CheckAdminLogin(string Email, string Password)
+        {
+            return await dbContext.Admins!.Where(X => X.Email == Email && X.Password == Password).SingleOrDefaultAsync();
+        }
+
         public async Task<int> DeleteAdmin(int adminId)
         {
             var admin = await  dbContext.Admins.FindAsync(adminId);
